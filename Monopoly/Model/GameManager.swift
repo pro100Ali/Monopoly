@@ -15,7 +15,7 @@ class GameManager {
 
 //    print(randomString)
     init() {
-        for i in 1...3 {
+        for i in 1...8 {
             print("Creating player \(i)")
             // Prompt the user for name and playing piece, or use default values
             let name = "Player \(i)"
@@ -25,8 +25,8 @@ class GameManager {
             let player = Player(id: i, name: name, playingPiece: playingPiece, startingSpace: 0, balance: 2000)
             players.append(player)
         }
-        players.append(Player(id: 1, name: "Player 1", playingPiece: 0, startingSpace: 0, balance: 2000))
-        players.append(Player(id: 2, name: "Player 2", playingPiece: 0, startingSpace: 0, balance: 2000))
+//        players.append(Player(id: 1, name: "Player 1", playingPiece: 0, startingSpace: 0, balance: 2000))
+//        players.append(Player(id: 2, name: "Player 2", playingPiece: 0, startingSpace: 0, balance: 2000))
     }
     
     func getCurrentPlayer() -> Player {

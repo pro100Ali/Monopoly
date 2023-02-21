@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     var count = 20
     var space: Space = Space(id: 1, name: "bir zher", location: 9, cost: 122)
 //    var gameManager.getCurrentPlayer() = Player(id: 1, name: "Ali", playingPiece: 0, startingSpace: 0, balance: 2000)
+ 
     var id2 = 0
     let images = [
         UIImage(named: "dice1"),
@@ -67,10 +68,6 @@ class ViewController: UIViewController {
 
 //             print(id2)
         }
-        
-     
-        
-        
     }
     
     override func viewDidLoad() {

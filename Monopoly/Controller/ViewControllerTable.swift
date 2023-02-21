@@ -1,0 +1,245 @@
+//
+//  ViewControllerTable.swift
+//  Monopoly
+//
+//  Created by Али  on 21.02.2023.
+//
+
+import UIKit
+import SnapKit
+
+class ViewControllerTable: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    let gameManager = GameManager()
+    
+    var count = 20
+    var space: Space = Space(id: 1, name: "bir zher", location: 9, cost: 122)
+    var id2 = 0
+
+    let images = [
+        UIImage(named: "dice1"),
+        UIImage(named: "dice2"),
+        UIImage(named: "dice3"),
+        UIImage(named: "dice4"),
+        UIImage(named: "dice5"),
+        UIImage(named: "dice6")
+    ]
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 8
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        cell.nameOfPlayer.text =  gameManager.players[indexPath.row].name
+        cell.balance.text = String(gameManager.players[indexPath.row].balance)
+        cell.position.text = Space.spaces[gameManager.getCurrentPlayer().currentPosition].name
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let newViewController = ViewController()
+        present(newViewController, animated: true)
+    }
+    
+    @objc func buyHouse() {
+        if gameManager.getCurrentPlayer().balance >= Space.spaces[id2].cost {
+            gameManager.getCurrentPlayer().balance -= Space.spaces[id2].cost
+            print(gameManager.getCurrentPlayer().balance)
+//            balanceOfThePlayer.text = String(gameManager.getCurrentPlayer().balance)
+//                        print("\(gameManager.getCurrentPlayer().name) bought a house on \(space.name)")
+        } else {
+            let alertController = UIAlertController(title: "Wroooong", message: "Akshan zhook", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            }
+            alertController.addAction(okAction)
+            present(alertController, animated: true)
+            print("\(gameManager.getCurrentPlayer().name) does not have enough money to buy a house on \(space.name)")
+        }
+        self.tableView.reloadData()
+    }
+    
+    
+    @objc func rollDice() {
+        let diceRoll1 = Int.random(in: 1...6)
+        let diceRoll2 = Int.random(in: 1...6)
+        let totalRoll = diceRoll1 + diceRoll2
+//        print("\(totalRoll) the totalRoll")
+        gameManager.getCurrentPlayer().updatePlayer(step: totalRoll)
+        if let space = Space.spaces.first(where: { $0.location == totalRoll }) {
+            gameManager.getCurrentPlayer().changingThePosition(position: Space.spaces[id2].location)
+            imageOfCubiks.image = images[diceRoll1-1]
+            imageOfCubiks2.image = images[diceRoll2-1]
+            count += totalRoll
+            
+            nameOfThePlace.text = Space.spaces[gameManager.getCurrentPlayer().currentPosition].name
+            costOfThePlace.text = "\(String(space.cost))$"
+       
+//            id2 = space.location
+//            DispatchQueue.main.async {
+//            }
+//            whichTurn.text = S
+            updateTurn()
+            gameManager.endTurn()
+            self.tableView.reloadData()
+
+        }
+    }
+    func updateTurn() {
+        if(id2>=gameManager.players.count-1) {
+            id2 = 0
+        } else {
+            id2 += 1
+        }
+        print("id2 = \(id2)")
+        whichTurn.text = gameManager.players[id2].name
+    }
+    
+    var buttonForBuy: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.backgroundColor = .systemBlue
+        button.setTitle("Buy", for: .normal)
+        button.layer.cornerRadius = 10
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(buyHouse), for: .touchUpInside)
+        return button
+    }()
+    
+    var buttonForSkip: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.backgroundColor = .systemBlue
+        button.setTitle("Skip", for: .normal)
+        button.layer.cornerRadius = 10
+        button.setTitleColor(.black, for: .normal)
+        return button
+    }()
+    
+    var nameOfThePlace: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.text = "Go"
+        return label
+    }()
+    
+    var costOfThePlace: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.text = "100$"
+        return label
+    }()
+    
+    var whichTurn: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.text = "Turn of Player1"
+        label.textColor = .red
+        return label
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        view.addSubview(tableView)
+        view.addSubview(nameOfThePlace)
+        view.addSubview(costOfThePlace)
+        view.addSubview(imageOfCubiks)
+        view.addSubview(imageOfCubiks2)
+        view.addSubview(buttonForRollingTheDice)
+        view.addSubview(buttonForBuy)
+        view.addSubview(buttonForSkip)
+        view.backgroundColor = .white
+        view.addSubview(whichTurn)
+        setupConstraints()
+    }
+    
+    
+    let tableView: UITableView = {
+        let table = UITableView()
+        table.register(TableViewCell.self, forCellReuseIdentifier: "cell")
+        return table
+    }()
+    
+    lazy private var imageOfCubiks: UIImageView = {
+       let image = UIImageView()
+        image.image = UIImage(named: "dice1.png")
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
+    lazy private var imageOfCubiks2: UIImageView = {
+       let image = UIImageView()
+        image.image = UIImage(named: "dice2.png")
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
+    var buttonForRollingTheDice: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.backgroundColor = .systemBlue
+        button.setTitle("Roll it", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(rollDice), for: .touchUpInside)
+        return button
+    }()
+    
+    var mapImage: UIImageView = {
+       let image = UIImageView()
+       image.image = UIImage(named: "heatmap.png")
+       return image
+    }()
+    
+
+    
+    func setupConstraints() {
+        tableView.snp.makeConstraints { make in
+            make.trailing.leading.top.equalToSuperview()
+            make.bottom.equalToSuperview().inset(400)
+        }
+        costOfThePlace.snp.makeConstraints { make in
+            make.top.equalTo(tableView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+        }
+        nameOfThePlace.snp.makeConstraints { make in
+            make.top.equalTo(tableView.snp.bottom).offset(50)
+            make.centerX.equalToSuperview()
+
+        }
+        imageOfCubiks.snp.makeConstraints { make in
+            make.width.height.equalTo(70)
+            make.top.equalTo(tableView.snp.bottom).offset(90)
+            make.centerX.equalToSuperview().offset(-50)
+        }
+        
+        imageOfCubiks2.snp.makeConstraints { make in
+            make.width.height.equalTo(70)
+            make.top.equalTo(imageOfCubiks.snp.top)
+            make.leading.equalTo(imageOfCubiks.snp.trailing).offset(20)
+        }
+        
+        buttonForRollingTheDice.snp.makeConstraints { make in
+            make.width.equalTo(130)
+            make.height.equalTo(40)
+            make.top.equalTo(imageOfCubiks.snp.bottom).offset(30)
+            make.leading.equalTo(imageOfCubiks.snp.leading).inset(15)
+        }
+
+        buttonForBuy.snp.makeConstraints { make in
+            make.width.equalTo(120)
+            make.height.equalTo(40)
+            make.leading.equalTo(buttonForRollingTheDice.snp.leading).inset(-80)
+            make.top.equalTo(buttonForRollingTheDice.snp.bottom).offset(40)
+        }
+        buttonForSkip.snp.makeConstraints { make in
+            make.width.equalTo(120)
+            make.height.equalTo(40)
+            make.leading.equalTo(buttonForBuy.snp.trailing).offset(80)
+            make.top.equalTo(buttonForBuy.snp.top)
+        }
+            
+        whichTurn.snp.makeConstraints { make in
+            make.top.equalTo(buttonForBuy.snp.bottom).offset(30)
+            make.centerX.equalToSuperview()
+        }
+
+    }
+}
