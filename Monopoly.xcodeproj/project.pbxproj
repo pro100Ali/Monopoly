@@ -1,0 +1,457 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E108A657D2F7971B7AA7AF8 /* Pods_Monopoly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B54F975C528F765CE860F384 /* Pods_Monopoly.framework */; };
+		4120B0B329A41571005FF565 /* Space.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120B0B229A41571005FF565 /* Space.swift */; };
+		4120B0B529A44283005FF565 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120B0B429A44283005FF565 /* GameManager.swift */; };
+		4120B0B729A447DB005FF565 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4120B0B629A447DB005FF565 /* IntroViewController.swift */; };
+		41E6E41D29A3C25A001746E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E41C29A3C25A001746E9 /* AppDelegate.swift */; };
+		41E6E41F29A3C25A001746E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E41E29A3C25A001746E9 /* SceneDelegate.swift */; };
+		41E6E42129A3C25A001746E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E42029A3C25A001746E9 /* ViewController.swift */; };
+		41E6E42629A3C25B001746E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E6E42529A3C25B001746E9 /* Assets.xcassets */; };
+		41E6E42929A3C25B001746E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41E6E42729A3C25B001746E9 /* LaunchScreen.storyboard */; };
+		41E6E43129A3C51E001746E9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E43029A3C51E001746E9 /* Player.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4120B0B229A41571005FF565 /* Space.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space.swift; sourceTree = "<group>"; };
+		4120B0B429A44283005FF565 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		4120B0B629A447DB005FF565 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		41E6E41929A3C25A001746E9 /* Monopoly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monopoly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		41E6E41C29A3C25A001746E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		41E6E41E29A3C25A001746E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		41E6E42029A3C25A001746E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		41E6E42529A3C25B001746E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		41E6E42829A3C25B001746E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		41E6E42A29A3C25B001746E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41E6E43029A3C51E001746E9 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		B54F975C528F765CE860F384 /* Pods_Monopoly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Monopoly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCA4CC73AA9102BE7AB9228C /* Pods-Monopoly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Monopoly.release.xcconfig"; path = "Target Support Files/Pods-Monopoly/Pods-Monopoly.release.xcconfig"; sourceTree = "<group>"; };
+		E9F4DAA1F0639CA2611573CB /* Pods-Monopoly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Monopoly.debug.xcconfig"; path = "Target Support Files/Pods-Monopoly/Pods-Monopoly.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		41E6E41629A3C25A001746E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E108A657D2F7971B7AA7AF8 /* Pods_Monopoly.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4118550629A4DDAE0012C6BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4118550729A4DDB50012C6BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4118550829A4DDC50012C6BB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				41E6E43029A3C51E001746E9 /* Player.swift */,
+				4120B0B429A44283005FF565 /* GameManager.swift */,
+				4120B0B229A41571005FF565 /* Space.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		41E6E41029A3C25A001746E9 = {
+			isa = PBXGroup;
+			children = (
+				41E6E41B29A3C25A001746E9 /* Monopoly */,
+				41E6E41A29A3C25A001746E9 /* Products */,
+				BE238480D7F7569646F5D825 /* Pods */,
+				DB05BB312EE91C8A4F12D938 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		41E6E41A29A3C25A001746E9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				41E6E41929A3C25A001746E9 /* Monopoly.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		41E6E41B29A3C25A001746E9 /* Monopoly */ = {
+			isa = PBXGroup;
+			children = (
+				4118550829A4DDC50012C6BB /* Controller */,
+				4118550729A4DDB50012C6BB /* View */,
+				4118550629A4DDAE0012C6BB /* Model */,
+				41E6E41C29A3C25A001746E9 /* AppDelegate.swift */,
+				41E6E41E29A3C25A001746E9 /* SceneDelegate.swift */,
+				41E6E42029A3C25A001746E9 /* ViewController.swift */,
+				4120B0B629A447DB005FF565 /* IntroViewController.swift */,
+				41E6E42529A3C25B001746E9 /* Assets.xcassets */,
+				41E6E42729A3C25B001746E9 /* LaunchScreen.storyboard */,
+				41E6E42A29A3C25B001746E9 /* Info.plist */,
+			);
+			path = Monopoly;
+			sourceTree = "<group>";
+		};
+		BE238480D7F7569646F5D825 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E9F4DAA1F0639CA2611573CB /* Pods-Monopoly.debug.xcconfig */,
+				BCA4CC73AA9102BE7AB9228C /* Pods-Monopoly.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DB05BB312EE91C8A4F12D938 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B54F975C528F765CE860F384 /* Pods_Monopoly.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		41E6E41829A3C25A001746E9 /* Monopoly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41E6E42D29A3C25B001746E9 /* Build configuration list for PBXNativeTarget "Monopoly" */;
+			buildPhases = (
+				DBE913DB7014A3CE883D3D2C /* [CP] Check Pods Manifest.lock */,
+				41E6E41529A3C25A001746E9 /* Sources */,
+				41E6E41629A3C25A001746E9 /* Frameworks */,
+				41E6E41729A3C25A001746E9 /* Resources */,
+				9E0C20E7FCE7F88C6B6539B0 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Monopoly;
+			productName = Monopoly;
+			productReference = 41E6E41929A3C25A001746E9 /* Monopoly.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		41E6E41129A3C25A001746E9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					41E6E41829A3C25A001746E9 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = 41E6E41429A3C25A001746E9 /* Build configuration list for PBXProject "Monopoly" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 41E6E41029A3C25A001746E9;
+			productRefGroup = 41E6E41A29A3C25A001746E9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				41E6E41829A3C25A001746E9 /* Monopoly */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		41E6E41729A3C25A001746E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41E6E42929A3C25B001746E9 /* LaunchScreen.storyboard in Resources */,
+				41E6E42629A3C25B001746E9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9E0C20E7FCE7F88C6B6539B0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Monopoly/Pods-Monopoly-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Monopoly/Pods-Monopoly-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Monopoly/Pods-Monopoly-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBE913DB7014A3CE883D3D2C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Monopoly-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		41E6E41529A3C25A001746E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4120B0B329A41571005FF565 /* Space.swift in Sources */,
+				4120B0B529A44283005FF565 /* GameManager.swift in Sources */,
+				4120B0B729A447DB005FF565 /* IntroViewController.swift in Sources */,
+				41E6E43129A3C51E001746E9 /* Player.swift in Sources */,
+				41E6E42129A3C25A001746E9 /* ViewController.swift in Sources */,
+				41E6E41D29A3C25A001746E9 /* AppDelegate.swift in Sources */,
+				41E6E41F29A3C25A001746E9 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		41E6E42729A3C25B001746E9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41E6E42829A3C25B001746E9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		41E6E42B29A3C25B001746E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		41E6E42C29A3C25B001746E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		41E6E42E29A3C25B001746E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9F4DAA1F0639CA2611573CB /* Pods-Monopoly.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Monopoly/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ali.Monopoly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		41E6E42F29A3C25B001746E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCA4CC73AA9102BE7AB9228C /* Pods-Monopoly.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Monopoly/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ali.Monopoly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		41E6E41429A3C25A001746E9 /* Build configuration list for PBXProject "Monopoly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41E6E42B29A3C25B001746E9 /* Debug */,
+				41E6E42C29A3C25B001746E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41E6E42D29A3C25B001746E9 /* Build configuration list for PBXNativeTarget "Monopoly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41E6E42E29A3C25B001746E9 /* Debug */,
+				41E6E42F29A3C25B001746E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 41E6E41129A3C25A001746E9 /* Project object */;
+}
