@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class ApartmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     var manager = GameManager()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return manager.getCurrentPlayer().places.count

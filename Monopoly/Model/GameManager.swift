@@ -8,13 +8,15 @@
 import Foundation
 
 class GameManager {
+    
     var players: [Player] = []
     var currentPlayerIndex = 0
-    
-
+    var val = IntroViewController.san
+//    var playerNames: [String] = []
     init() {
-        for i in 1...2 {
-            // Prompt the user for name and playing piece, or use default values
+//        print(val)
+        for i in 1...val{
+
             let name = "Player \(i)"
             let playingPiece = 0 // Prompt user for playing piece, or use default
 
@@ -23,8 +25,6 @@ class GameManager {
             players.append(player)
 
         }
-//            let player = Player(id: 1, name: "Ali", playingPiece: 0, startingSpace: 0, balance: 2000)
-//            players.append(player)
 
 
 

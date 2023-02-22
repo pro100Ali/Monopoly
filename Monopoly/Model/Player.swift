@@ -38,17 +38,17 @@ class Player {
 //        currentPosition = currentPosition + position
 //    }
     
-    func changingThePosition(position: Int) {
-//        if currentPosition > 40 ? playingPiece+=1 : currentPosition += position
-//        currentPosition = (currentPosition + position > 40) ? (currentPosition + position) % 40 : currentPosition + position
-
-//            print(currentPosition)
-                
-        if let currentSpace = Space.spaceAt(location: currentPosition) {
-            print("balance of \(name) is \(balance)")
-            print("\(name) landed on \(currentPosition)")
-        }
-    }
+//    func changingThePosition(position: Int) {
+////        if currentPosition > 40 ? playingPiece+=1 : currentPosition += position
+////        currentPosition = (currentPosition + position > 40) ? (currentPosition + position) % 40 : currentPosition + position
+//
+////            print(currentPosition)
+//                
+//        if let currentSpace = Space.spaceAt(location: currentPosition) {
+//            print("balance of \(name) is \(balance)")
+//            print("\(name) landed on \(currentPosition)")
+//        }
+//    }
     
     func updatePlayer(step: Int) {
         currentPosition = (currentPosition + step > 40) ? (currentPosition + step) % 40 : currentPosition + step

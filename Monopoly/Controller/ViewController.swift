@@ -56,7 +56,7 @@ class ViewController: UIViewController {
 //        print("\(totalRoll) the totalRoll")
 //        gameManager.getCurrentPlayer().updatePlayer(step: totalRoll)
         if let space = Space.spaces.first(where: { $0.location == totalRoll }) {
-            gameManager.getCurrentPlayer().changingThePosition(position: Space.spaces[id2].location)
+//            gameManager.getCurrentPlayer().changingThePosition(position: Space.spaces[id2].location)
             imageOfCubiks.image = images[diceRoll1-1]
             imageOfCubiks2.image = images[diceRoll2-1]
             count += totalRoll

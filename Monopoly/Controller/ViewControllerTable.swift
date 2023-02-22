@@ -11,12 +11,14 @@ import SnapKit
 class ViewControllerTable: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let gameManager = GameManager()
     var arrayOfPurchase: [String] = []
-    var count = 20
+    var count = 1
     var space: Space = Space(id: 1, name: "bir zher", location: 9, cost: 122)
-    var id2 = 0
+    var id2 = -1
     var total = 0
     var isFirstTap = true
     var temp = 0
+    var start = false
+    var firstRoll = true
 //    var isPlayerOnesTurn: Bool = true
 
     let images = [
@@ -29,7 +31,7 @@ class ViewControllerTable: UIViewController, UITableViewDelegate, UITableViewDat
     ]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return gameManager.players.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
@@ -55,47 +57,56 @@ class ViewControllerTable: UIViewController, UITableViewDelegate, UITableViewDat
         newViewController.manager = gameManager
         present(newViewController, animated: true)
     }
+    
     @objc func buyHouse() {
+        if start {
+            let currentPlayer = gameManager.getCurrentPlayer()
+    //        print(currentPlayer.currentPosition)
+            
+            gameManager.getCurrentPlayer().updatePlayer(step: total)
+            
+            if gameManager.getCurrentPlayer().balance >= Space.spaces[gameManager.getCurrentPlayer().currentPosition].cost {
+                print(" current player is \(gameManager.getCurrentPlayer().id-1)")
 
-        let currentPlayer = gameManager.getCurrentPlayer()
-//        print(currentPlayer.currentPosition)
-        
-        gameManager.getCurrentPlayer().updatePlayer(step: total)
-        
-        if gameManager.getCurrentPlayer().balance >= Space.spaces[gameManager.getCurrentPlayer().currentPosition].cost {
-            
-            gameManager.getCurrentPlayer().balance -= Space.spaces[(gameManager.players[temp].currentPosition)].cost
-            
-            currentPlayer.places.append(Space.spaces[(gameManager.players[temp].currentPosition)].name)
-            
-            print(currentPlayer.places)
-            print(" \(gameManager.getCurrentPlayer().name) money \(gameManager.getCurrentPlayer().balance) position \( Space.spaces[gameManager.getCurrentPlayer().currentPosition].name)")
-            Player.space.append(Space.spaces[gameManager.getCurrentPlayer().currentPosition])
-            print(Space.spaces[gameManager.getCurrentPlayer().currentPosition].cost)
+                if firstRoll {
+                    print(gameManager.getCurrentPlayer().balance)
+                    firstRoll = false
+                } else {
+                    print(gameManager.getCurrentPlayer().balance)
+                    gameManager.getCurrentPlayer().balance -= Space.spaces[(gameManager.getCurrentPlayer().currentPosition)].cost
+                }
+                
+                print(Space.spaces[(gameManager.getCurrentPlayer().currentPosition)].cost)
+                
+                currentPlayer.places.append(Space.spaces[(gameManager.players[temp].currentPosition)].name)
+                
+                print(currentPlayer.places)
 
-            minusMoney.isHidden = false
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [self] in
-                self.minusMoney.text = String("-\(Space.spaces[gameManager.getCurrentPlayer().currentPosition].cost)$")
-                self.minusMoney.isHidden = true
+                Player.space.append(Space.spaces[gameManager.getCurrentPlayer().currentPosition])
+
+                minusMoney.isHidden = false
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [self] in
+                    self.minusMoney.text = String("-\(Space.spaces[gameManager.getCurrentPlayer().currentPosition].cost)$")
+                    self.minusMoney.isHidden = true
+                }
+         
+            } else {
+                let alertController = UIAlertController(title: "Wroooong", message: "Akshan zhook", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                }
+                alertController.addAction(okAction)
+                present(alertController, animated: true)
+                print("\(gameManager.getCurrentPlayer().name) does not have enough money to buy a house on \(space.name)")
             }
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
-//
-        } else {
-            let alertController = UIAlertController(title: "Wroooong", message: "Akshan zhook", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            }
-            alertController.addAction(okAction)
-            present(alertController, animated: true)
-            print("\(gameManager.getCurrentPlayer().name) does not have enough money to buy a house on \(space.name)")
+           
         }
-       
+        
     }
     
     
     @objc func rollDice() {
+        start = true
         let diceRoll1 = Int.random(in: 1...6)
         let diceRoll2 = Int.random(in: 1...6)
         let totalRoll = diceRoll1 + diceRoll2
@@ -106,12 +117,11 @@ class ViewControllerTable: UIViewController, UITableViewDelegate, UITableViewDat
         gameManager.getCurrentPlayer().updatePlayer(step: totalRoll)
         print("position of it is \(Space.spaces[gameManager.getCurrentPlayer().currentPosition].name)")
         if let space = Space.spaces.first(where: { $0.location == totalRoll }) {
-            gameManager.getCurrentPlayer().changingThePosition(position: Space.spaces[id2].location)
             imageOfCubiks.image = images[diceRoll1-1]
             imageOfCubiks2.image = images[diceRoll2-1]
             count += totalRoll
             
-            nameOfThePlace.text = Space.spaces[gameManager.getCurrentPlayer().currentPosition].name
+            nameOfThePlace.text = "\(gameManager.getCurrentPlayer().name) is \(Space.spaces[gameManager.getCurrentPlayer().currentPosition].name) is \(gameManager.getCurrentPlayer().currentPosition)"
             costOfThePlace.text = "\(String(Space.spaces[gameManager.getCurrentPlayer().currentPosition].cost))$"
             print(Space.spaces[currentPlayer.currentPosition].cost
 )
@@ -122,8 +132,8 @@ class ViewControllerTable: UIViewController, UITableViewDelegate, UITableViewDat
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-            gameManager.endTurn()
             updateTurn()
+            gameManager.endTurn()
 
           
         }
@@ -131,11 +141,12 @@ class ViewControllerTable: UIViewController, UITableViewDelegate, UITableViewDat
     func updateTurn() {
         if(id2>=gameManager.players.count-1) {
             id2 = 0
+            
         } else {
             id2 += 1
         }
 //        print("id2 = \(id2)")
-        whichTurn.text = gameManager.players[id2].name
+//        whichTurn.text = gameManager.players[id2].name
     }
     
     var buttonForBuy: UIButton = {
@@ -194,8 +205,9 @@ class ViewControllerTable: UIViewController, UITableViewDelegate, UITableViewDat
         view.addSubview(costOfThePlace)
         view.addSubview(imageOfCubiks)
         view.addSubview(imageOfCubiks2)
-        view.addSubview(buttonForRollingTheDice)
         view.addSubview(buttonForBuy)
+        
+        view.addSubview(buttonForRollingTheDice)
         view.addSubview(buttonForSkip)
         view.addSubview(minusMoney)
         view.backgroundColor = .white

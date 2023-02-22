@@ -5,10 +5,14 @@
 //  Created by Али  on 21.02.2023.
 //
 
+
+
 import UIKit
 import SnapKit
+
 class IntroViewController: UIViewController, UITextFieldDelegate {
     var count = 1
+    static var san = 0
     var arrayOfNames = [String]()
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == countPlayer {
@@ -28,7 +32,8 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     }()
     
     @objc func listOfTheTextFields(count: Int) {
-        guard let  val = Int(countPlayer.text ?? "2") else {return}
+        guard let  val = Int(countPlayer.text ?? "2") else { return }
+        IntroViewController.san = val
         for i in 1...val {
             let playerTextField = UITextField(frame: CGRect(x: 20, y: 100 + (i-1)*50, width: 200, height: 30))
             playerTextField.placeholder = "Player \(i) name"
@@ -38,14 +43,12 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
             view.addSubview(buttonForStart)
             
             if i == val {
-              
                 buttonForStart.snp.makeConstraints { make in
                     make.top.equalTo(playerTextField.snp.bottom).offset(40)
                     make.width.equalTo(70)
                     make.leading.equalTo(playerTextField).offset(20)
                 }
             }
-            
         }
         buttonForSubmitting.isHidden = true
         countPlayer.isHidden = true
@@ -53,7 +56,7 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func start() {
-        let newViewController = ViewController()
+        let newViewController = ViewControllerTable()
         self.navigationController?.pushViewController(newViewController, animated: true)
 
     }
