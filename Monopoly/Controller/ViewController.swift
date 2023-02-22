@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         let diceRoll2 = Int.random(in: 1...6)
         let totalRoll = diceRoll1 + diceRoll2
 //        print("\(totalRoll) the totalRoll")
-        gameManager.getCurrentPlayer().updatePlayer(step: totalRoll)
+//        gameManager.getCurrentPlayer().updatePlayer(step: totalRoll)
         if let space = Space.spaces.first(where: { $0.location == totalRoll }) {
             gameManager.getCurrentPlayer().changingThePosition(position: Space.spaces[id2].location)
             imageOfCubiks.image = images[diceRoll1-1]

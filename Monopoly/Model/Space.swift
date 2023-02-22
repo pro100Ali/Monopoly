@@ -18,11 +18,10 @@ class Space {
         self.name = name
         self.location = location
         self.cost = cost
-//        self.spaces = []
+        
     }
         
         
-        // Add more properties and methods as needed
         func getName(for location: Int, in spaces: [Space]) -> String? {
             for space in spaces {
                 if space.location == location {
