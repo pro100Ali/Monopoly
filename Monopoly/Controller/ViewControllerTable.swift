@@ -39,7 +39,7 @@ class ViewControllerTable: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         cell.nameOfPlayer.text =  gameManager.players[indexPath.row].name
-        cell.balance.text = String(gameManager.players[indexPath.row].balance)
+        cell.balance.text = "\(String(gameManager.players[indexPath.row].balance))M"
         cell.position.text = Space.spaces[(gameManager.players[indexPath.row].currentPosition)].name
         temp = indexPath.row
         return cell
